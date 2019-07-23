@@ -1,0 +1,55 @@
+=encoding utf8
+
+=begin html
+
+<a href="https://travis-ci.com/kiwiroy/mojo-path-role-relative">
+  <img src="https://travis-ci.com/kiwiroy/mojo-path-role-relative.svg?branch=master">
+</a>
+
+=end html
+
+=head1 NAME
+
+Mojo::Path::Role::Relative - Relative operations on a Mojo::Path
+
+=head1 SYNOPSIS
+
+  $path = Mojo::Path->with_roles('+Relative')->new('/foo/bar/baz/data.json');
+  $base = Mojo::Path->new('/foo/bar');
+  # 1
+  $path->is_subpath_of($base);
+  # "baz/data.json"
+  $path->to_subpath_of($base);
+  # "baz/data.json"
+  $path->to_rel($base);
+
+=head1 DESCRIPTION
+
+L<Mojo::URL/"to_rel"> was deprecated sometime ago. A suggestion was made to move
+the functionality to L<Mojo::Path>. This is an implementation of that suggestion
+as a L<role|Role:Riny>.
+
+=head1 METHODS
+
+This role adds the following methods to L<Mojo::Path> when composed.
+
+=head2 is_subpath_of
+
+=head2 to_rel
+
+=head2 to_subpath_of
+
+
+
+=head1 AUTHOR
+
+kiwiroy - Roy Storey <kiwiroy@cpan.org>
+
+=head1 LICENSE
+
+This library is free software and may be distributed under the same terms as
+perl itself.
+
+
+=cut
+

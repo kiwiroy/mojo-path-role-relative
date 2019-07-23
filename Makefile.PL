@@ -25,4 +25,5 @@ WriteMakefile(
 }
 ,
   test => {TESTS => (-e 'META.yml' ? 't/*.t' : 't/*.t xt/*.t')},
+  dist => { ($^O eq 'darwin' ? (TAR => 'gnutar') : ())},
 );

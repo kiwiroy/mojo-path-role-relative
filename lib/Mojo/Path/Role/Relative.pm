@@ -2,7 +2,7 @@ package Mojo::Path::Role::Relative;
 use Mojo::Base -role;
 use Mojo::File;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 # https://github.com/mojolicious/mojo/issues/573
 
@@ -86,11 +86,25 @@ This role adds the following methods to L<Mojo::Path> when composed.
 
 =head2 is_subpath_of
 
+  # 1
+  $path->is_subpath_of($base);
+
+Determine if C<$path> is a subpath/child of C<$base>.
+
 =head2 to_rel
+
+  # "baz/data.json"
+  $path->to_rel($base);
+
+Use L<Mojo::File/"to_rel"> to determine a relative path.
 
 =head2 to_subpath_of
 
+  # "baz/data.json"
+  $path->to_subpath_of($base);
 
+Similar to L</"to_rel">, except that the path will remain absolute if C<$path>
+is not a subpath  of C<$base>.
 
 =head1 AUTHOR
 
